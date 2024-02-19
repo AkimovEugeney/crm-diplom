@@ -245,27 +245,38 @@ body:has(.site-modal) {
 	height: 12px;
 	margin-left: 2px;
 	cursor: pointer;
+	background: url('../img/arrow-downward2.svg') no-repeat center / contain;
 }
 
 .table__head_id::after {
-	transform: translateY(-1px);
-	background: url('../img/arrow-downward.svg') no-repeat center / cover;
+	transform: translateY(-1px) rotate(180deg);
 }
 
 .table__head_fio::after {
+	content: "А-Я";
 	width: 29px;
 	height: 13px;
-	background: url('../img/arrow-letters.svg') no-repeat center / contain;
+	padding-left: 12px;
+	transform: translateY(-1px);
+	text-wrap: nowrap;
+	font-size: 10px;
+	font-weight: 600;
+	color: var(--color-violet);
+	background: url('../img/arrow-downward2.svg') no-repeat left 2px / contain;
 }
 
-.table__head_date-of-create::after {
-	background: url('../img/arrow-downward2.svg') no-repeat center / contain;
+.table__head_actions::after,
+.table__head_contacts::after {
+	content: none;
 }
 
-.table__head_recent-changes::after {
-	background: url('../img/arrow-downward2.svg') no-repeat center / contain;
+.table__head-rev::after {
+	background: url('../img/arrow-downward.svg') no-repeat center / contain;
 }
 
+.table__head-rev.table__head_fio::after {
+	background: url('../img/arrow-downward.svg') no-repeat left 2px / contain;
+}
 
 .table__head_date-of-create {
 	max-width: 130px;

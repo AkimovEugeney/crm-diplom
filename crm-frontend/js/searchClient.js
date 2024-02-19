@@ -35,11 +35,8 @@ export function searchClients (clients) {
 		if (value != '') {
 			await serchInTable(value);
 			const findLinks = document.querySelectorAll('.find-list__link');
-			console.log(findLinks)
 			findLinks.forEach(link => {
-				console.log('a')
 				if (!link.innerText.includes(value)) {
-					console.log('a')
 					link.classList.add('hide');
 					link.innerHTML = link.innerText;
 				} else {

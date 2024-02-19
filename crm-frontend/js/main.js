@@ -13,11 +13,13 @@ import { searchClients } from "./searchClient.js";
 
 	async function createApp () {
 		const btnAddClients = document.getElementById('btn__add-clients');
+
 		btnAddClients.addEventListener('click', () => {
 			document.body.append(addClientModal());
 			document.body.classList.add('modal-open')
 		})
 		createHeaderForm();
+
 
 		try {
 			const clients = await getClients();

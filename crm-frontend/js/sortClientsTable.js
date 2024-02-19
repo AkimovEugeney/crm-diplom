@@ -11,7 +11,7 @@ export function sortTable () {
 				return content;
 			case 'create':
 			case 'update':
-				return content.split('.').reverse().join('-');
+				return content.split('.').join('-');
 			case 'text':
 			default:
 				return content;
@@ -24,7 +24,6 @@ export function sortTable () {
 		const direction = directions[index] || 'sortUp';
 		const multiply = direction == 'sortUp' ? 1 : -1;
 		const newRows = Array.from(rows);
-		console.log(rows)
 
 		newRows.sort((row1, row2) => {
 			const cellA = row1.querySelectorAll('td')[index].textContent;
@@ -57,7 +56,11 @@ export function sortTable () {
 	}
 
 	[].forEach.call(headers, (header, index) => {
+		if (index === 4) {
+			return
+		}
 		header.addEventListener('click', () => {
+			header.classList.toggle('table__head-rev');
 			sortColumn(index);
 		})
 	})
