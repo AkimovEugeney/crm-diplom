@@ -96,6 +96,21 @@
   background-color: rgba(200, 197, 209, 0.3);
 }
 
+.contacts__inner {
+  max-height: 248px;
+  padding-right: 4px;
+}
+
+.contacts__inner::-webkit-scrollbar {
+  width: 10px;
+}
+
+.contacts__inner::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: darkgrey; /* Ползунок темно-серого цвета */
+  border: 2px solid white; /* С белыми границами */
+}
+
 .modal__btn-contact {
   border: none;
   cursor: pointer;

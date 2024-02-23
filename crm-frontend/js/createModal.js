@@ -17,6 +17,7 @@ export function createModalForms() {
   const saveBtn = document.createElement('button');
   const cancelBtn = document.createElement('button');
   const contactsBlock = document.createElement('div');
+  const contactsInner = document.createElement('div');
   const formFloatingName = document.createElement('div');
   const formFloatingSurname = document.createElement('div');
   const formFloatingLastname = document.createElement('div');
@@ -30,6 +31,7 @@ export function createModalForms() {
   const requredValue = document.createElement('span');
   const requredContacts = document.createElement('span');
 
+  contactsInner.classList.add('contacts__inner');
   svgSpinner.classList.add('modal__spinner');
   title.classList.add('modal__title');
   close.classList.add('modal__close', 'btn-reset');
@@ -92,7 +94,7 @@ export function createModalForms() {
   formFloatingName.append(inputName, labelName);
   formFloatingSurname.append(inputSurname, labelSurname);
   formFloatingLastname.append(inputLastname, labelLastname);
-  contactsBlock.append(addContactBtn);
+  contactsBlock.append(contactsInner, addContactBtn);
   errorBlock.append(
     writeName,
     writeSurname,
@@ -118,10 +120,13 @@ export function createModalForms() {
 
     if (contactsItems.length < 9) {
       const contactItem = createContactItem();
-      contactsBlock.prepend(contactItem.contact);
+      contactsInner.append(contactItem.contact);
       contactsBlock.style.backgroundColor = 'rgb(200, 197, 209, 0.2)';
       if (contactsItems.length >= 5) {
-        document.querySelector('.site-modal__content').style.top = '10%';
+        // document.querySelector('.site-modal__content').style.top = '10%';
+        contactsInner.style.overflowY = 'auto';
+        contactsInner.style.overflowX = 'hidden';
+        addContactBtn.style.paddingTop = '10px';
         if (window.innerHeight <= 750) {
           document.querySelector('.site-modal__content').style.top = '20%';
         }
@@ -133,7 +138,7 @@ export function createModalForms() {
       }
     } else {
       const contactItem = createContactItem();
-      contactsBlock.prepend(contactItem.contact);
+      contactsInner.append(contactItem.contact);
       addContactBtn.classList.remove('modal__btn-contact_active');
     }
   });
