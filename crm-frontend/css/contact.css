@@ -2,6 +2,9 @@
   display: flex;
   align-items: center;
   width: 390px;
+}
+
+.contact:not(:last-child) {
   margin-bottom: 25px;
 }
 

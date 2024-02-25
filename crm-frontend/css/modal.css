@@ -96,10 +96,6 @@
   background-color: rgba(200, 197, 209, 0.3);
 }
 
-.contacts__inner {
-  max-height: 248px;
-  padding-right: 4px;
-}
 
 .contacts__inner::-webkit-scrollbar {
   width: 10px;

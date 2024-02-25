@@ -94,7 +94,7 @@ export function createModalForms() {
   formFloatingName.append(inputName, labelName);
   formFloatingSurname.append(inputSurname, labelSurname);
   formFloatingLastname.append(inputLastname, labelLastname);
-  contactsBlock.append(contactsInner, addContactBtn);
+  contactsBlock.append(addContactBtn);
   errorBlock.append(
     writeName,
     writeSurname,
@@ -113,8 +113,14 @@ export function createModalForms() {
     cancelBtn
   );
 
+
   addContactBtn.addEventListener('click', e => {
     e.preventDefault();
+
+    if (!contactsBlock.contains(contactsInner)) {
+      contactsBlock.prepend(contactsInner);
+      addContactBtn.style.paddingTop = '15px';
+    }
 
     const contactsItems = document.getElementsByClassName('contact');
 
@@ -126,7 +132,22 @@ export function createModalForms() {
         // document.querySelector('.site-modal__content').style.top = '10%';
         contactsInner.style.overflowY = 'auto';
         contactsInner.style.overflowX = 'hidden';
-        addContactBtn.style.paddingTop = '10px';
+        contactsInner.style.maxHeight = '248px';
+        contactsInner.style.paddingRight = '4px';
+
+        let afterContact = contactsItems[contactsItems.length - 1];
+        let afterContactType = afterContact.children[0];
+
+        afterContactType.children[1].style.top = '-142px';
+
+        afterContact = contactsItems[contactsItems.length - 2];
+        afterContactType = afterContact.children[0];
+        afterContactType.children[1].style.top = '-142px';
+
+        afterContact = contactsItems[contactsItems.length - 3];
+        afterContactType = afterContact.children[0];
+        afterContactType.children[1].style.top = '36px';
+
         if (window.innerHeight <= 750) {
           document.querySelector('.site-modal__content').style.top = '20%';
         }
