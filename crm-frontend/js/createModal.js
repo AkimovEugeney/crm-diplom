@@ -113,7 +113,6 @@ export function createModalForms() {
     cancelBtn
   );
 
-
   addContactBtn.addEventListener('click', e => {
     e.preventDefault();
 
@@ -129,7 +128,6 @@ export function createModalForms() {
       contactsInner.append(contactItem.contact);
       contactsBlock.style.backgroundColor = 'rgb(200, 197, 209, 0.2)';
       if (contactsItems.length >= 5) {
-        // document.querySelector('.site-modal__content').style.top = '10%';
         contactsInner.style.overflowY = 'auto';
         contactsInner.style.overflowX = 'hidden';
         contactsInner.style.maxHeight = '248px';
@@ -161,6 +159,20 @@ export function createModalForms() {
       const contactItem = createContactItem();
       contactsInner.append(contactItem.contact);
       addContactBtn.classList.remove('modal__btn-contact_active');
+    }
+
+    if (contactsItems.length == 10) {
+      let afterContact = contactsItems[contactsItems.length - 1];
+      let afterContactType = afterContact.children[0];
+      afterContactType.children[1].style.top = '-142px';
+  
+      afterContact = contactsItems[contactsItems.length - 2];
+      afterContactType = afterContact.children[0];
+      afterContactType.children[1].style.top = '-142px';
+  
+      afterContact = contactsItems[contactsItems.length - 3];
+      afterContactType = afterContact.children[0];
+      afterContactType.children[1].style.top = '36px';
     }
   });
 
